@@ -2,6 +2,29 @@
 
 Backend API untuk aplikasi WattMate - Smart Electricity Monitoring System.
 
+## 🏠 Hardware Setup Anda
+
+**ESP32 + PZEM-004T + Relay 1 Channel**
+
+- 📡 ESP32: WiFi communication + control logic
+- ⚡ PZEM-004T: Real-time electricity monitoring (V, A, W, kWh, PF, Hz)
+- 🔌 Relay 1 Channel: Remote ON/OFF control untuk peralatan listrik
+
+**Quick Setup:**
+
+1. Backend API: Setup database + server (guide ini)
+2. ESP32: Upload script `esp32/wattmate_esp32_pzem_relay.ino`
+3. Hardware: Wiring ESP32-PZEM-Relay (lihat `esp32/README.md`)
+4. Test: Monitor via Serial + cek data di API
+
+**Files untuk Anda:**
+
+- `esp32/wattmate_esp32_pzem_relay.ino` - Main ESP32 script
+- `esp32/README.md` - Wiring diagram + troubleshooting
+- `MONITORING_API.md` - API endpoints documentation
+
+---
+
 ## 🚀 Features
 
 - **Authentication & Authorization**
@@ -419,4 +442,5 @@ Setelah menjalankan migration, admin user default akan dibuat:
 ## 📄 License
 
 MIT License - lihat file LICENSE untuk detail.
+
 # be-wattmate
