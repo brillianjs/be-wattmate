@@ -31,4 +31,5 @@ jobs:
 
             # Install dependensi dan restart PM2 pakai nama kamu
             npm install
-            pm2 restart be-wattmate
+            pm2 restart wattmate-api
+
