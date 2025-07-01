@@ -18,12 +18,17 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
-          password: ${{ secrets.SSH_PASS }}  # atau private key (lebih aman)
+          password: ${{ secrets.SSH_PASS }}
           port: 22
           script: |
-            cd /home/x/be-wattmate
+            cd /home/x/monitoring_listrik
             git pull origin main
-            script: |
-            /home/x/.nvm/versions/node/v22.17.0/bin/npm install
-            /home/x/.nvm/versions/node/v22.17.0/bin/pm2 restart wattmate-api
 
+            # Aktifkan NVM dan Node.js
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+            nvm use 22
+
+            # Install dependensi dan restart PM2 pakai nama kamu
+            npm install
+            pm2 restart be-wattmate
