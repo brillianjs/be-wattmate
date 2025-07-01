@@ -23,5 +23,7 @@ jobs:
           script: |
             cd /home/x/be-wattmate
             git pull origin main
-            npm install
-            pm2 restart wattmate-api
+            script: |
+            /home/x/.nvm/versions/node/v22.17.0/bin/npm install
+            /home/x/.nvm/versions/node/v22.17.0/bin/pm2 restart wattmate-api
+
