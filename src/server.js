@@ -26,17 +26,8 @@ app.use(
       if (!origin) return callback(null, true);
 
       // Allow specific origins
-      const allowedOrigins = [
-        "http://localhost:8080",
-        "http://localhost:3000",
-        "http://localhost:3001",
-        "http://localhost:50332", // Flutter development port
-        "http://127.0.0.1:8080",
-        "http://127.0.0.1:50332", // Flutter development port
-        "http://10.0.2.2:3001", // Android emulator
-        "http://10.0.2.2:50332", // Flutter Android emulator
-        process.env.FRONTEND_URL,
-      ].filter(Boolean);
+      // Allow all origins
+      return callback(null, true);
 
       if (allowedOrigins.includes(origin)) {
         return callback(null, true);
