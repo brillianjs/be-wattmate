@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 3000;
 // Import routes
 const apiRoutes = require("./routes/api");
 const authRoutes = require("./routes/auth");
+const monitoringRoutes = require("./routes/monitoring");
 
 // Security middleware
 app.use(
@@ -107,6 +108,7 @@ app.use((req, res, next) => {
 // Routes
 app.use("/api", apiRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/monitoring", monitoringRoutes);
 
 // Root endpoint
 app.get("/", (req, res) => {
