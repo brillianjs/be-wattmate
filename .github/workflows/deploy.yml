@@ -1,0 +1,27 @@
+name: Deploy ke Server (PM2)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout kode
+        uses: actions/checkout@v3
+
+      - name: Deploy ke VPS via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASS }}  # atau private key (lebih aman)
+          port: 22
+          script: |
+            cd /home/x/be-wattmate
+            git pull origin main
+            npm install
+            pm2 restart wattmate-api
