@@ -61,19 +61,19 @@ app.use(
   })
 );
 
-// Rate limiting
-const generalLimiter = rateLimit({
-  windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 15 * 60 * 1000, // 15 minutes
-  max: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS) || 100, // limit each IP to 100 requests per windowMs
-  message: {
-    success: false,
-    message: "Terlalu banyak request. Coba lagi nanti.",
-  },
-  standardHeaders: true,
-  legacyHeaders: false,
-});
+// // Rate limiting
+// const generalLimiter = rateLimit({
+//   windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 15 * 60 * 1000, // 15 minutes
+//   max: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS) || 100, // limit each IP to 100 requests per windowMs
+//   message: {
+//     success: false,
+//     message: "Terlalu banyak request. Coba lagi nanti.",
+//   },
+//   standardHeaders: true,
+//   legacyHeaders: false,
+// });
 
-app.use(generalLimiter);
+// app.use(generalLimiter);
 
 // Handle preflight requests explicitly
 app.options("*", (req, res) => {
